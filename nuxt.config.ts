@@ -1,7 +1,7 @@
 const isDev = process.env.MODE;
 
 export default defineNuxtConfig({
-    ssr: false,
+    ssr: true,
 
     app: {
         head: {

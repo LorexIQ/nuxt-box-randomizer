@@ -1,13 +1,19 @@
 <script setup lang="ts">
-import useBoxesStore, {type BlackBoxType} from "~/stores/useBoxesStore";
+import type {BlackBoxType, UseBoxesStore} from "~/stores/useBoxesStore";
 
-const route = useRoute();
-const boxesStore = useBoxesStore();
+interface Props {
+  isEdit: boolean;
+  modelValue: UseBoxesStore;
+}
+
+const props = defineProps<Props>();
+const boxesStore = props.modelValue;
+const isEdit = props.isEdit;
+
 const createModal = useSwitch();
 const editModal = useSwitch();
 const infoModal = useSwitch();
 const modalData = reactive({} as BlackBoxType);
-const isEdit = !!route.query.edit;
 const extended = ref(false);
 
 function createBox(_extended = false) {
