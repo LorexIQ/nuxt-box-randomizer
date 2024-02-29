@@ -155,6 +155,7 @@ function stringifyQuery(query) {
 const PROTOCOL_STRICT_REGEX = /^[\s\w\0+.-]{2,}:([/\\]{1,2})/;
 const PROTOCOL_REGEX = /^[\s\w\0+.-]{2,}:([/\\]{2})?/;
 const PROTOCOL_RELATIVE_REGEX = /^([/\\]\s*){2,}[^/\\]/;
+const PROTOCOL_SCRIPT_RE = /^[\s\0]*(blob|data|javascript|vbscript):$/i;
 const TRAILING_SLASH_RE = /\/$|\/\?|\/#/;
 const JOIN_LEADING_SLASH_RE = /^\.?\//;
 function hasProtocol(inputString, opts = {}) {
@@ -165,6 +166,9 @@ function hasProtocol(inputString, opts = {}) {
     return PROTOCOL_STRICT_REGEX.test(inputString);
   }
   return PROTOCOL_REGEX.test(inputString) || (opts.acceptRelative ? PROTOCOL_RELATIVE_REGEX.test(inputString) : false);
+}
+function isScriptProtocol(protocol) {
+  return !!protocol && PROTOCOL_SCRIPT_RE.test(protocol);
 }
 function hasTrailingSlash(input = "", respectQueryAndFragment) {
   if (!respectQueryAndFragment) {
@@ -262,6 +266,21 @@ function joinURL(base, ...input) {
     }
   }
   return url;
+}
+function isEqual(a, b, options = {}) {
+  if (!options.trailingSlash) {
+    a = withTrailingSlash(a);
+    b = withTrailingSlash(b);
+  }
+  if (!options.leadingSlash) {
+    a = withLeadingSlash(a);
+    b = withLeadingSlash(b);
+  }
+  if (!options.encoding) {
+    a = decode(a);
+    b = decode(b);
+  }
+  return a === b;
 }
 
 const protocolRelative = Symbol.for("ufo:protocolRelative");
@@ -3348,7 +3367,8 @@ function createNodeFetch() {
 const fetch = globalThis.fetch || createNodeFetch();
 const Headers$1 = globalThis.Headers || s;
 const AbortController = globalThis.AbortController || i;
-createFetch$1({ fetch, Headers: Headers$1, AbortController });
+const ofetch = createFetch$1({ fetch, Headers: Headers$1, AbortController });
+const $fetch = ofetch;
 
 const nullBodyResponses = /* @__PURE__ */ new Set([101, 204, 205, 304]);
 function createCall(handle) {
@@ -3762,7 +3782,7 @@ function klona(x) {
 
 const inlineAppConfig = {
   "nuxt": {
-    "buildId": "1a83d90f-050d-4ff1-8823-34f60ab63153"
+    "buildId": "0fb22a27-d573-415b-9181-c0c6a44fc40b"
   }
 };
 
@@ -5057,68 +5077,68 @@ const assets = {
     "size": 10522,
     "path": "../public/favicon.ico"
   },
-  "/_nuxt/entry.Ch9o5Typ.css": {
+  "/_nuxt/entry.B1pE46KK.js": {
+    "type": "application/javascript",
+    "etag": "\"45039-ZtmYhPWpZb1OB7t+GZXYO1n0tts\"",
+    "mtime": "2024-02-29T20:41:33.385Z",
+    "size": 282681,
+    "path": "../public/_nuxt/entry.B1pE46KK.js"
+  },
+  "/_nuxt/entry.BMmcVvUD.css": {
     "type": "text/css; charset=utf-8",
-    "etag": "\"2eb0-pyo+wkSexPrp2NOXMfXLlhYsVSE\"",
-    "mtime": "2024-02-29T17:27:25.702Z",
-    "size": 11952,
-    "path": "../public/_nuxt/entry.Ch9o5Typ.css"
-  },
-  "/_nuxt/entry.DghWGjm2.js": {
-    "type": "application/javascript",
-    "etag": "\"44df3-8X/vA2EVYD6n+Or3r2ZiWn4NmEI\"",
-    "mtime": "2024-02-29T17:27:25.701Z",
-    "size": 282099,
-    "path": "../public/_nuxt/entry.DghWGjm2.js"
-  },
-  "/_nuxt/error-404.BfpQNir0.js": {
-    "type": "application/javascript",
-    "etag": "\"19b0-ZV4hI0NZEvmBFAJCCFx47qWdbgE\"",
-    "mtime": "2024-02-29T17:27:25.704Z",
-    "size": 6576,
-    "path": "../public/_nuxt/error-404.BfpQNir0.js"
+    "etag": "\"2d6d-ZHmrO6XwXjgcfX2alRE41FUYE9I\"",
+    "mtime": "2024-02-29T20:41:33.387Z",
+    "size": 11629,
+    "path": "../public/_nuxt/entry.BMmcVvUD.css"
   },
   "/_nuxt/error-404.CoUbADi5.css": {
     "type": "text/css; charset=utf-8",
     "etag": "\"e26-9UI2Z985OY4ttYcbyiWh91cxpnM\"",
-    "mtime": "2024-02-29T17:27:25.703Z",
+    "mtime": "2024-02-29T20:41:33.387Z",
     "size": 3622,
     "path": "../public/_nuxt/error-404.CoUbADi5.css"
+  },
+  "/_nuxt/error-404.Zz_PYh8G.js": {
+    "type": "application/javascript",
+    "etag": "\"19b0-mK4npagTyNiTMTix/Ze52O/DCtg\"",
+    "mtime": "2024-02-29T20:41:33.388Z",
+    "size": 6576,
+    "path": "../public/_nuxt/error-404.Zz_PYh8G.js"
   },
   "/_nuxt/error-500.BXQ_YkC0.css": {
     "type": "text/css; charset=utf-8",
     "etag": "\"79e-ByRo+49BgcevWdRjJy3CMx2IA5k\"",
-    "mtime": "2024-02-29T17:27:25.703Z",
+    "mtime": "2024-02-29T20:41:33.388Z",
     "size": 1950,
     "path": "../public/_nuxt/error-500.BXQ_YkC0.css"
   },
-  "/_nuxt/error-500.DUw9RCc4.js": {
+  "/_nuxt/error-500.soADwU_d.js": {
     "type": "application/javascript",
-    "etag": "\"77e-15dhzWGH5I2MSEpWA9/ptMP4bxk\"",
-    "mtime": "2024-02-29T17:27:25.703Z",
+    "etag": "\"77e-y+z5q38+lv8XOyWR/4T0q0Eofyk\"",
+    "mtime": "2024-02-29T20:41:33.387Z",
     "size": 1918,
-    "path": "../public/_nuxt/error-500.DUw9RCc4.js"
+    "path": "../public/_nuxt/error-500.soADwU_d.js"
   },
-  "/_nuxt/vue.f36acd1f.D5-Osyi7.js": {
+  "/_nuxt/vue.f36acd1f.Dbjtsijv.js": {
     "type": "application/javascript",
-    "etag": "\"186-9Rw59hFweoE2j65vVCuD83plELQ\"",
-    "mtime": "2024-02-29T17:27:25.703Z",
+    "etag": "\"186-dXSVyyhi5Z93tkVLGN4hY8ko/Kg\"",
+    "mtime": "2024-02-29T20:41:33.388Z",
     "size": 390,
-    "path": "../public/_nuxt/vue.f36acd1f.D5-Osyi7.js"
+    "path": "../public/_nuxt/vue.f36acd1f.Dbjtsijv.js"
   },
   "/_nuxt/builds/latest.json": {
     "type": "application/json",
-    "etag": "\"47-sEnAMHXCzM23gOrQAfK/tv7/4Co\"",
-    "mtime": "2024-02-29T17:27:25.899Z",
+    "etag": "\"47-TAUhkbYfN1J5KR9Sg607TJlb5Hg\"",
+    "mtime": "2024-02-29T20:41:36.248Z",
     "size": 71,
     "path": "../public/_nuxt/builds/latest.json"
   },
-  "/_nuxt/builds/meta/1a83d90f-050d-4ff1-8823-34f60ab63153.json": {
+  "/_nuxt/builds/meta/0fb22a27-d573-415b-9181-c0c6a44fc40b.json": {
     "type": "application/json",
-    "etag": "\"8b-YGcg+uqzfaTSeL9E5cnLilV8CwA\"",
-    "mtime": "2024-02-29T17:27:25.900Z",
+    "etag": "\"8b-8q5ptvuEza4/mOnGHshZy8OTnCQ\"",
+    "mtime": "2024-02-29T20:41:36.250Z",
     "size": 139,
-    "path": "../public/_nuxt/builds/meta/1a83d90f-050d-4ff1-8823-34f60ab63153.json"
+    "path": "../public/_nuxt/builds/meta/0fb22a27-d573-415b-9181-c0c6a44fc40b.json"
   }
 };
 
@@ -5694,5 +5714,5 @@ trapUnhandledNodeErrors();
 setupGracefulShutdown(listener, nitroApp);
 const nodeServer = {};
 
-export { send as a, setResponseStatus as b, setResponseHeaders as c, useRuntimeConfig as d, eventHandler as e, getQuery as f, getResponseStatus as g, createError$1 as h, getRouteRules as i, joinURL as j, getResponseStatusText as k, nodeServer as n, setResponseHeader as s, useNitroApp as u };
+export { $fetch as $, send as a, setResponseStatus as b, setResponseHeaders as c, useRuntimeConfig as d, eventHandler as e, getQuery as f, getResponseStatus as g, createError$1 as h, getRouteRules as i, joinURL as j, getResponseStatusText as k, hasProtocol as l, isScriptProtocol as m, sanitizeStatusCode as n, createHooks as o, parseURL as p, isEqual as q, stringifyParsedURL as r, setResponseHeader as s, stringifyQuery as t, useNitroApp as u, parseQuery as v, withQuery as w, withTrailingSlash as x, withoutTrailingSlash as y, nodeServer as z };
 //# sourceMappingURL=node-server.mjs.map

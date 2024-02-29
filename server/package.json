@@ -5,6 +5,7 @@
   "private": true,
   "dependencies": {
     "@babel/parser": "7.23.9",
+    "@iconify/vue": "4.1.1",
     "@unhead/dom": "1.8.10",
     "@unhead/shared": "1.8.10",
     "@unhead/ssr": "1.8.10",
@@ -20,10 +21,13 @@
     "entities": "4.5.0",
     "estree-walker": "2.0.2",
     "hookable": "5.5.3",
+    "sortablejs": "1.14.0",
     "source-map-js": "1.0.2",
     "ufo": "1.4.0",
     "unhead": "1.8.10",
     "vue": "3.4.20",
-    "vue-bundle-renderer": "2.0.0"
+    "vue-bundle-renderer": "2.0.0",
+    "vue-devtools-stub": "0.1.0",
+    "vuedraggable": "4.1.0"
   }
 }

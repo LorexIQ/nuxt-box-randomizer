@@ -1,10 +1,10 @@
 const client_manifest = {
-  "_vue.f36acd1f.D5-Osyi7.js": {
+  "_vue.f36acd1f.Dbjtsijv.js": {
     "resourceType": "script",
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "vue.f36acd1f.D5-Osyi7.js",
+    "file": "vue.f36acd1f.Dbjtsijv.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js"
     ]
@@ -14,16 +14,14 @@ const client_manifest = {
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "error-404.BfpQNir0.js",
+    "file": "error-404.Zz_PYh8G.js",
     "src": "node_modules/@nuxt/ui-templates/dist/templates/error-404.vue",
     "isDynamicEntry": true,
     "imports": [
       "node_modules/nuxt/dist/app/entry.js",
-      "_vue.f36acd1f.D5-Osyi7.js"
+      "_vue.f36acd1f.Dbjtsijv.js"
     ],
-    "css": [
-      "error-404.CoUbADi5.css"
-    ]
+    "css": []
   },
   "error-404.CoUbADi5.css": {
     "file": "error-404.CoUbADi5.css",
@@ -36,16 +34,14 @@ const client_manifest = {
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "error-500.DUw9RCc4.js",
+    "file": "error-500.soADwU_d.js",
     "src": "node_modules/@nuxt/ui-templates/dist/templates/error-500.vue",
     "isDynamicEntry": true,
     "imports": [
-      "_vue.f36acd1f.D5-Osyi7.js",
+      "_vue.f36acd1f.Dbjtsijv.js",
       "node_modules/nuxt/dist/app/entry.js"
     ],
-    "css": [
-      "error-500.BXQ_YkC0.css"
-    ]
+    "css": []
   },
   "error-500.BXQ_YkC0.css": {
     "file": "error-500.BXQ_YkC0.css",
@@ -58,7 +54,7 @@ const client_manifest = {
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "entry.DghWGjm2.js",
+    "file": "entry.B1pE46KK.js",
     "src": "node_modules/nuxt/dist/app/entry.js",
     "isEntry": true,
     "dynamicImports": [
@@ -66,11 +62,12 @@ const client_manifest = {
       "node_modules/@nuxt/ui-templates/dist/templates/error-500.vue"
     ],
     "css": [
-      "entry.Ch9o5Typ.css"
-    ]
+      "entry.BMmcVvUD.css"
+    ],
+    "_globalCSS": true
   },
-  "entry.Ch9o5Typ.css": {
-    "file": "entry.Ch9o5Typ.css",
+  "entry.BMmcVvUD.css": {
+    "file": "entry.BMmcVvUD.css",
     "resourceType": "style",
     "prefetch": true,
     "preload": true
