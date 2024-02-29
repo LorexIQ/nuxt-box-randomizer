@@ -1,11 +1,13 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
+const isDev = process.env.MODE;
+
 export default defineNuxtConfig({
     ssr: false,
 
     app: {
         head: {
             title: 'Box Randomizer'
-        }
+        },
+        ...(isDev ? {} : { baseURL: '/nuxt-box-randomizer/' })
     },
 
     css: [
