@@ -1,10 +1,10 @@
 const client_manifest = {
-  "_vue.f36acd1f.Bt7uR5YD.js": {
+  "_vue.f36acd1f.D5-Osyi7.js": {
     "resourceType": "script",
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "vue.f36acd1f.Bt7uR5YD.js",
+    "file": "vue.f36acd1f.D5-Osyi7.js",
     "imports": [
       "node_modules/nuxt/dist/app/entry.js"
     ]
@@ -14,12 +14,12 @@ const client_manifest = {
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "error-404.CSytDhsv.js",
+    "file": "error-404.BfpQNir0.js",
     "src": "node_modules/@nuxt/ui-templates/dist/templates/error-404.vue",
     "isDynamicEntry": true,
     "imports": [
       "node_modules/nuxt/dist/app/entry.js",
-      "_vue.f36acd1f.Bt7uR5YD.js"
+      "_vue.f36acd1f.D5-Osyi7.js"
     ],
     "css": [
       "error-404.CoUbADi5.css"
@@ -36,11 +36,11 @@ const client_manifest = {
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "error-500.C-ELpfHP.js",
+    "file": "error-500.DUw9RCc4.js",
     "src": "node_modules/@nuxt/ui-templates/dist/templates/error-500.vue",
     "isDynamicEntry": true,
     "imports": [
-      "_vue.f36acd1f.Bt7uR5YD.js",
+      "_vue.f36acd1f.D5-Osyi7.js",
       "node_modules/nuxt/dist/app/entry.js"
     ],
     "css": [
@@ -58,7 +58,7 @@ const client_manifest = {
     "module": true,
     "prefetch": true,
     "preload": true,
-    "file": "entry.BQ6PA6kC.js",
+    "file": "entry.DghWGjm2.js",
     "src": "node_modules/nuxt/dist/app/entry.js",
     "isEntry": true,
     "dynamicImports": [
